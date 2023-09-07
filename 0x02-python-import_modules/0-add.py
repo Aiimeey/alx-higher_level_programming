@@ -4,4 +4,4 @@ a = 1
 b = 2
 add = add_0.add(a, b)
 
-print("1 + 2 = {}".format(add))
+print("{} + {} = {}".format(a, b, add))
