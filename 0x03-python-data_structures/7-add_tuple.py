@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 def add_tuple(tuple_a=(), tuple_b=()):
+    sum = ()
 
-    a1, a2 = tuple_a[:2] if len(tuple_a) >= 2 else (0, 0)
-    b1, b2 = tuple_b[:2] if len(tuple_b) >= 2 else (0, 0)
+    tuple_len = max(len(tuple_a), len(tuple_b))
 
-    sum_1 = a1 + b1
-    sum_2 = a2 + b2
-
-    return (sum_1, sum_2)
+    for i in range(tuple_len):
+        a = tuple_a[i] if i < len(tuple_a) else 0
+        b = tuple_b[i] if i < len(tuple_b) else 0
+        sum += (a + b,)
+    return sum
