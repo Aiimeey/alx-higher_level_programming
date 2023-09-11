@@ -1,13 +1,13 @@
-#include "lists.h"
+#include"lists.h"
 
-int is_palindrome(listint_t **head)
+intis_palindrome(listint_t **head)
 {
 	const listint_t *current;
-	int n = 0,j, i = 0 , a;
+	int n = 0, j, i = 0, a;
 	int arr[1024];
 
-	if (*head == NULL)
-		return 1;
+	if (*head == NULL || (*head)->next == NULL)
+		return (1);
 
 	current = *head;
 
@@ -18,12 +18,13 @@ int is_palindrome(listint_t **head)
 		n++;
 	}
 	n--;
-	a=n/2;
-	for(j = n; i < a; i++, j--){
+	a = n / 2;
+	for (j = n; i < a; i++, j--)
+{
 		if (arr[i] != arr[j])
-		{ 
-			return 0;
+		{
+			return (0);
 		}
-	}    
+	}
 	return (1);
 }
