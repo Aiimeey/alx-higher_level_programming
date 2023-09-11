@@ -6,7 +6,7 @@ intis_palindrome(listint_t **head)
 	int n = 0, j, i = 0, a;
 	int arr[1024];
 
-	if (*head == NULL || (*head)->next == NULL)
+	if (*head == NULL)
 		return (1);
 
 	current = *head;
