@@ -9,9 +9,9 @@ int is_palindrome(listint_t **head)
 {
 	const listint_t *current;
 	int n = 0, j, i = 0, a;
-	int arr[1024];
+	int arr[2048];
 
-	if (head == NULL || (*head) == NULL || (*head)->next == NULL)
+	if (*head == NULL)
 		return (1);
 
 	current = *head;
