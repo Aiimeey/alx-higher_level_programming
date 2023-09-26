@@ -3,6 +3,7 @@
 
 
 class Square:
+    """A class for creating and manipulating square objects """
 
     def __init__(self, size=0):
         """
