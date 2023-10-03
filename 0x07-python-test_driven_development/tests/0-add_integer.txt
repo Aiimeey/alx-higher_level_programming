@@ -1,0 +1,17 @@
+# Tests for the add_integer function.
+
+>>> from 0-add_integer import add_integer:
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+# Test case 1: Adding two integers
+>>> add_integer(1, 2)
+3
+
+# Test case 2: Adding two integers with one being negative
+>>> add_integer(100, -2)
+98
+
+# Test case 3: Adding two floats (should cast them to integers)
+>>> add_integer(100.3, -2)
+98
