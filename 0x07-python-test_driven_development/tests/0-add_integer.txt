@@ -13,3 +13,27 @@
 # Test case 3: Adding two floats (should cast them to integers)
 >>> add_integer(100.3, -2)
 98
+
+# Test case 4: Adding two large integers
+>>> add_integer(1000000, 2000000)
+3000000
+
+# Test case 5: Adding two negative integers
+>>> add_integer(-5, -7)
+-12
+
+# Test case 6: Adding an integer and a float
+>>> add_integer(5, 3.5)
+8
+
+# Test case 7: Adding two floats with decimal places
+>>> add_integer(3.14159, 2.71828)
+5
+
+# Test case 8: Adding zero and a positive integer
+>>> add_integer(0, 42)
+42
+
+# Test case 9: Adding zero and a negative integer
+>>> add_integer(0, -99)
+-99
