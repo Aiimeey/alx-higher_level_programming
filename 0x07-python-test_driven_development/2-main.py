@@ -7,5 +7,3 @@ matrix = [
 ]
 print(matrix_divided(matrix, 2))
 print(matrix)
-
-

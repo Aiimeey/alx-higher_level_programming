@@ -1,4 +1,10 @@
 def matrix_divided(matrix, div):
+    """ Divide each element in a matrix by a specified divisor
+
+    Args:
+        matrix (list of lists): The matrix to b divided must b integer or float
+        div (int or float): The divisor by which each element is divided
+    """
     if not all(
         isinstance(row, list) and
         all(isinstance(element, (int, float)) for element in row)
