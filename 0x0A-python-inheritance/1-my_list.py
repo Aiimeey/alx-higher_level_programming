@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+""" custom list module that extends the functionality of built-in list class"""
+
+
 class MyList(list):
     """ Custom list class that inherits from the built-in list class """
 
