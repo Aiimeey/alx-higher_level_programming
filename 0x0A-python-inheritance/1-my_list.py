@@ -3,10 +3,8 @@
 
 
 class MyList(list):
-    """ Custom list class that inherits from the built-in list class
-    """
+    """ Custom list class that inherits from the built-in list class """
 
     def print_sorted(self):
-        """ Print the elements of the list in ascending sorted order
-        """
-        print(sorted(self[:]))
+        """ Print the elements of the list in ascending sorted order """
+        print(sorted(self))
