@@ -5,7 +5,6 @@ This module provides a function to retrieve available attributes and methods
 
 
 def lookup(obj):
+    """ Returns a list of available attributes and methods of an object
     """
-    Returns a list of available attributes and methods of an object
-    """
-    return dir(obj)
+    return list(dir(obj))
