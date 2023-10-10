@@ -1,0 +1,31 @@
+=============================
+TESTS FOR 2-matrix_divided.py
+=============================
+
+>>> div_mat = __import__('2-matrix_divided').matrix_divided
+
+
+>>> test_mat = [['a', 'b', 'c'], [4, 5, 6]]
+>>> print(div_mat(test_mat, 2))
+Traceback (most recent call last):
+	...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> test_mat = [[0, 1, 2], [4, 5, 6]]
+>>> print(div_mat(test_mat, "holb"))
+Traceback (most recent call last):
+	...
+TypeError: div must be a number
+
+>>> test_mat = [[0, 1, 2], [4, 5, 6]]
+>>> print(div_mat(test_mat, 0))
+Traceback (most recent call last):
+	...
+ZeroDivisionError: division by zero
+
+
+>>> test_mat = [[0, 1, 2, 90, 30], [4, 5, 6]]
+>>> print(div_mat(test_mat, 2))
+Traceback (most recent call last):
+	...
+TypeError: Each row of the matrix must have the same size
