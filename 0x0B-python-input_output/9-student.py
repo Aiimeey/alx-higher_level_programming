@@ -10,9 +10,8 @@ class Student():
         self.age = age
 
     def to_json(self):
-        """Converts student attributes to a JSON-like dictionary """
-        result = {}
-        for key, value in self.__dict__.items():
-            if isinstance(value, (list, dict, str, int, bool)):
-                result.update({key: value})
-        return result
+        return {
+            'first_name': self.first_name,
+            'last_name': self.last_name,
+            'age': self.age
+        }
