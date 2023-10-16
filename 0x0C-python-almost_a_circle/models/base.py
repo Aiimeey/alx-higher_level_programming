@@ -9,6 +9,7 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """ Initializes a new instance of the Base class """
         if id is not None:
             self.id = id
         else:
@@ -17,12 +18,14 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """ Converts a list of dictionaries to a JSON string."""
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
         return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """ Saves a list of objects to a JSON file """
         if list_objs is None:
             list_objs = []
         filename = cls.__name__ + ".json"
@@ -38,12 +41,14 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        """ Converts a JSON string to a list of dictionaries """
         if json_string is None or len(json_string) == 0:
             return "[]"
         return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
+        """Creates an instance of the cls & initializes it with a dictionary"""
         if cls.__name__ == "Rectangle":
             dummy = cls(1, 1)
         elif cls.__name__ == "Square":
@@ -53,11 +58,13 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        filename = f"{cls.__name__}.json"
+        """ Loads instances of the class from a JSON file """
+        filename = cls.__name__ + ".json"
         instances = []
         if os.path.exists(filename):
-            with open(filename, "r", encoding="utf-8") as file:
+            with open(filename, 'r', encoding="utf-8") as file:
                 js_str = file.read()
-                dict_list = json.loads(js_str)
-                instances = [cls.create(**dic) for dic in dict_list]
+                if js_str:
+                    dict_list = json.loads(js_str)
+                    instances = [cls.create(**dic) for dic in dict_list]
         return instances
