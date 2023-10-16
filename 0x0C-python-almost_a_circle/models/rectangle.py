@@ -15,10 +15,12 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """Get the width of the rectangle."""
         return self.__width
 
     @width.setter
     def width(self, value):
+        """Set the width of the rectangle."""
         if type(value) is not int:
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -27,10 +29,12 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """Get the height of the rectangle."""
         return self.__height
 
     @height.setter
     def height(self, value):
+        """Set the height of the rectangle."""
         if type(value) is not int:
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -39,10 +43,12 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """Get the x-coordinate """
         return self.__x
 
     @x.setter
     def x(self, value):
+        """Set the x-coordinate """
         if type(value) is not int:
             raise TypeError("x must be an integer")
         if value < 0:
@@ -51,10 +57,12 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """Get the y-coordinate """
         return self.__y
 
     @y.setter
     def y(self, value):
+        """Set the y-coordinate of the top-left corner."""
         if type(value) is not int:
             raise TypeError("y must be an integer")
         if value < 0:
@@ -62,19 +70,23 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
+        """Calculate and return the area of the rectangle."""
         return self.__width * self.__height
 
     def display(self):
+        """Display the rectangle by printing it to the console."""
         for i in range(self.__y):
             print()
         for i in range(self.__height):
             print(" " * self.__x + "#" * self.__width)
 
     def __str__(self):
+        """Return a string representation of the rectangle."""
         return "[Rectangle] ({}) {}/{} - {}/{}"\
             .format(self.id, self.__x, self.__y, self.__width, self.__height)
 
     def update(self, *args, **kwargs):
+        """Update the attributes of the rectangle."""
         if args:
             if len(args) >= 1:
                 super().__init__(args[0])
