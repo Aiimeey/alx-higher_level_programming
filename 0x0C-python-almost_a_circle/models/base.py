@@ -61,11 +61,14 @@ class Base:
         """ Loads instances of the class from a JSON file """
         file_name = cls.__name__ + ".json"
         instances = []
-        with open(file_name, 'r', encoding='utf-8') as file:
-            data = file.read()
-            if data:
-                js_list = cls.from_json_string(data)
-                for itm in js_list:
-                    instance = cls.create(**itm)
-                    instances.append(instance)
-        return instances
+        try:
+            with open(file_name, 'r', encoding='utf-8') as file:
+                data = file.read()
+                if data:
+                    js_list = cls.from_json_string(data)
+                    for itm in js_list:
+                        instance = cls.create(**itm)
+                        instances.append(instance)
+            return instances
+        except FileNotFoundError:
+            return instances
