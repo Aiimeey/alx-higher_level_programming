@@ -59,12 +59,13 @@ class Base:
     @classmethod
     def load_from_file(cls):
         """ Loads instances of the class from a JSON file """
-        filename = cls.__name__ + ".json"
+        file_name = cls.__name__ + ".json"
         instances = []
-        if os.path.exists(filename):
-            with open(filename, 'r', encoding="utf-8") as file:
-                js_str = file.read()
-                if js_str:
-                    dict_list = json.loads(js_str)
-                    instances = [cls.create(**dic) for dic in dict_list]
+        with open(file_name, 'r', encoding='utf-8') as file:
+            data = file.read()
+            if data:
+                js_list = cls.from_json_string(data)
+                for itm in js_list:
+                    instance = cls.create(**itm)
+                    instances.append(instance)
         return instances
