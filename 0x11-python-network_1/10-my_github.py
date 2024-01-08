@@ -5,11 +5,11 @@ to display your id. Uses Basic Authentication with a personal access token as
 password to access your information (only read:user permission is needed).
 """
 import requests
-import sys
+from sys import argv
 
 if __name__ == "__main__":
-    username = sys.argv[1]
-    password = sys.argv[2]
+    username = argv[1]
+    password = argv[2]
     url = "https://api.github.com/user"
     
     response = requests.get(url, auth=(username, password))
