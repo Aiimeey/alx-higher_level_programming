@@ -2,29 +2,10 @@
 """ relationship_state_client module """
 from sqlalchemy import Column, Integer, String, ForeignKey, create_engine
 # from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship, Session, declarative_base
+from sqlalchemy.orm import relationship, Session
 from sys import argv
-
-
-Base = declarative_base()
-
-
-class State(Base):
-    """ class state """
-    __tablename__ = "states"
-    id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
-    name = Column(String(128), nullable=False)
-    cities = relationship("City", back_populates="state",
-                          cascade="all, delete")
-
-
-class City(Base):
-    """ city class """
-    __tablename__ = 'cities'
-    id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
-    name = Column(String(128), nullable=False)
-    state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
-    state = relationship("State", back_populates="cities")
+from relationship_state import Base, State
+from relationship_city import City
 
 
 if __name__ == "__main__":
