@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 """ relationship_state_client module """
 from sqlalchemy import Column, Integer, String, ForeignKey, create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship, Session
+# from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship, Session, declarative_base
 from sys import argv
+
 
 Base = declarative_base()
 
