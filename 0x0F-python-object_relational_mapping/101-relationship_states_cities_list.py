@@ -43,7 +43,25 @@ if __name__ == "__main__":
 
     for state in states:
         print(f"{state.id}: {state.name}")
-        for city in state.cities:
+        for city in sorted(state.cities, key=lambda x: x.id):
             print(f"    {city.id}: {city.name}")
 
     session.close()
+'''    result = []
+
+    for state in states:
+        state_data = {"id": state.id, "name": state.name, "cities": []}
+        cities = sorted(state.cities, key=lambda x: x.id)  # Order cities by id
+        for city in cities:
+            city_data = {"id": city.id, "name": city.name}
+            state_data["cities"].append(city_data)
+        result.append(state_data)
+        print(f"{state.id}: {state.name}")
+        for city in cities:
+            print(f"    {city.id}: {city.name}")
+
+    # Save the data to a JSON file
+    with open("states_and_cities.json", "w") as json_file:
+        json.dump(result, json_file, indent=4)
+
+    session.close() '''
