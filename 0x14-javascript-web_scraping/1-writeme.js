@@ -8,8 +8,6 @@ if (process.argv.length > 3) {
   fs.writeFile(filePath, content, 'utf-8', (err) => {
     if (err) {
       console.err(err);
-    } else {
-      console.log('File has been successfully written.');
     }
   });
 }
