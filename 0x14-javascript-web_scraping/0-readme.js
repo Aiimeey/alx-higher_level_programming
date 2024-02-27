@@ -1,8 +1,8 @@
 #!/usr/bin/node
 const fs = require('fs');
 /*
-console.log("Executable path:", process.argv[0]);
-console.log("Script path:", process.argv[1]);
+console.log("Executable path:( #!/usr/bin/node) ", process.argv[0]);
+console.log("File path:", process.argv[1]);
 console.log("Command-line arguments:", process.argv[2]);
 */
 if (process.argv.length > 2) {
