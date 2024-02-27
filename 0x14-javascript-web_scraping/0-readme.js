@@ -6,14 +6,13 @@ console.log("Script path:", process.argv[1]);
 console.log("Command-line arguments:", process.argv[2]);
 */
 if (process.argv.length > 2) {
-    const filePath = process.argv[2];
+  const filePath = process.argv[2];
 
-    fs.readFile(filePath, 'utf-8', (err, data) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-      console.log(data);
-    });
-    
+  fs.readFile(filePath, 'utf-8', (err, data) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    console.log(data);
+  });
 }
