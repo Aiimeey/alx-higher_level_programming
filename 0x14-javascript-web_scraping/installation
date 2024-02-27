@@ -1,19 +1,20 @@
-#Install Node 14:
+####### Install Node 14:
 
 $ curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 $ sudo apt-get install -y nodejs
 
-#Install semi-standard:
-apt install npm
+####### Install semi-standard:
+
+$ apt install npm
 $ sudo npm install semistandard --global
-#usage : semistandard 0-readme.js 
+(usage : semistandard 0-readme.js) 
+(documentation :https://github.com/standard/semistandard)
 
-# install request module:
-#https://github.com/request/request
+####### install request module:
 
-
+(documentation : https://github.com/request/request)
 sudo npm install request --global
-$ export NODE_PATH=/usr/lib/node_modules
+export NODE_PATH=/usr/lib/node_modules
 
 
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
