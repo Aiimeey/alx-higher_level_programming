@@ -1,36 +1,34 @@
 #!/usr/bin/node
 const fs = require('fs');
-const https = require('https');
+const request = require('request');
 
-if (process.argv.length !== 4) {
-  console.error('Usage: node 5-request_store.js <URL> <file_path>');
-  process.exit(1);
+// Get arguments from command line
+const [, , url, filePath] = process.argv;
+
+// Function to fetch webpage content and store it in a file
+function fetchAndStore(url, filePath) {
+    // Make request to the URL
+    request(url, (error, response, body) => {
+        if (error) {
+            console.error('Error occurred while fetching the webpage:', error);
+            return;
+        }
+
+        if (response.statusCode !== 200) {
+            console.error('Failed to fetch webpage. Status code:', response.statusCode);
+            return;
+        }
+
+        // Write body content to file
+        fs.writeFile(filePath, body, { encoding: 'utf-8' }, (err) => {
+            if (err) {
+                console.error('Error occurred while writing to file:', err);
+                return;
+            }
+            //console.log('Webpage content successfully stored in', filePath);
+        });
+    });
 }
 
-const url = process.argv[2];
-const filePath = process.argv[3];
-
-const request = https.get(url, (response) => {
-  let responseBody = '';
-
-  response.setEncoding('utf8');
-
-  response.on('data', (chunk) => {
-    responseBody += chunk;
-  });
-
-  response.on('end', () => {
-    fs.writeFile(filePath, responseBody, { encoding: 'utf8' }, (err) => {
-      if (err) {
-        console.error('Error writing to file:', err);
-        process.exit(1);
-      }
-      console.log('File saved successfully.');
-    });
-  });
-});
-
-request.on('error', (err) => {
-  console.error('Error requesting URL:', err);
-  process.exit(1);
-});
+// Call function to fetch and store webpage content
+fetchAndStore(url, filePath);
