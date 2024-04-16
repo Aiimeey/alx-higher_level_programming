@@ -17,8 +17,8 @@ request(apiUrl, (error, response, body) => {
   const filmsData = JSON.parse(body).results;
   const characterId = '18'; // Character ID of Wedge Antilles
 
-  const moviesWithWedge = filmsData.filter(film =>
-    film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)
+  const moviesWithWedge = filmsData.filter(x =>
+    x.characters.includes(`https://swapi-api.alx-tools.com/api/people/${characterId}/`)
   );
 
   console.log(moviesWithWedge.length);
