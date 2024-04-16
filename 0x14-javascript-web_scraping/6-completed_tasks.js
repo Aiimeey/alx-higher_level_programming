@@ -35,3 +35,22 @@ request(apiUrl, (error, response, body) => {
 
   console.log(completedTasksByUser);
 });
+
+
+/*
+  const data = JSON.parse(body);
+
+  const y = data.filter(x =>
+    x.completed === true);
+
+  const dic = {};
+  y.forEach(x => {
+  // if(dic.hasOwnProperty(x.userId)){
+    if (dic[x.userId]) {
+      dic[x.userId]++;
+    } else {
+      dic[x.userId] = 1;
+    }
+  });
+  console.log(dic);
+*/
