@@ -20,4 +20,3 @@ request(url, async (error, response, body) => {
     });
   });
 });
-
